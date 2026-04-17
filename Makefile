@@ -6,14 +6,8 @@ jdk17-maven-node22:
 gcloud-pubsub-emulator:
 	docker build ./gcloud-pubsub-emulator -t gcloud-pubsub-emulator:latest
 
-gcloud-firestore-emulator:
-	docker build ./gcloud-firestore-emulator -t gcloud-firestore-emulator:latest
-
 modsecurity:
 	docker build ./modsecurity -t modsecurity:latest
-
-cloud-sdk-firebase-cli:
-	docker build ./cloud-sdk-firebase-cli -t cloud-sdk-firebase-cli:latest
 
 tinyproxy:
 	docker build ./tinyproxy -t tinyproxy:latest
@@ -22,6 +16,9 @@ cloudsql-proxy:
 	docker build ./cloudsql-proxy -t cloudsql-proxy:latest
 
 python-pipenv: python-pipenv-3.14
+
+python-pipenv-3.12:
+	docker build --build-arg="PYTHON_TAG=$$(cat python-pipenv/python-3.12-tag.txt)" ./python-pipenv -t python-pipenv:3.12
 
 python-pipenv-3.14:
 	docker build --build-arg="PYTHON_TAG=$$(cat python-pipenv/python-3.14-tag.txt)" ./python-pipenv -t python-pipenv:3.14
@@ -35,4 +32,4 @@ eq-stub:
 owasp-venom:
 	docker build ./owasp-venom -t venom:latest
 
-build-all: gcloud-pubsub-emulator gcloud-firestore-emulator modsecurity cloud-sdk-firebase-cli tinyproxy cloudsql-proxy python-pipenv cloud-sdk-terraform eq-stub owasp-venom
+build-all: gcloud-pubsub-emulator modsecurity tinyproxy cloudsql-proxy python-pipenv python-pipenv-3.12 cloud-sdk-terraform eq-stub owasp-venom
