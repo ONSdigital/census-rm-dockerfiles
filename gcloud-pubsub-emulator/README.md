@@ -6,7 +6,7 @@ This image provides a dockerized version of the *Google Cloud Pub/Sub Emulator*.
 
 ## Build
 
-Run it locally as part of [docker-dev](https://github.com/ONSdigital/ssdc-rm-docker-dev).  
+Run it locally as part of [docker-dev](https://github.com/ONSdigital/census-rm-docker-dev).  
 
 Build a new image by running:
 
@@ -18,7 +18,7 @@ docker build . -t europe-west2-docker.pkg.dev/ssdc-rm-ci/docker/gcloud-pubsub-em
 The following shell statement show the most simple execution of the provided image. It will execute the *Pub/Sub Emulator* that will listen on port 8538.
 
 ```sh
-docker run --rm --tty --interactive --publish 8538:8538 europe-west2-docker.pkg.dev/ssdc-rm-ci/docker/gcloud-pubsub-emulator
+docker run --rm --tty --interactive --publish 8538:8538 gcloud-pubsub-emulator
 ```
 
 ## Configuration
@@ -27,5 +27,5 @@ The most important configuration parameters of the *Pub/Sub emulator* image are 
 The following example shows how to start the *Pub/Sub emulator* to listen on `192.168.1.3:12345` and to store its files in the `/pubsub-data` directory.
 
 ```sh
-docker run --rm --tty --interactive europe-west2-docker.pkg.dev/ssdc-rm-ci/docker/gcloud-pubsub-emulator start --host-port=192.168.1.3:12345 --data-dir=/pubsub-data
+docker run --rm --tty --interactive gcloud-pubsub-emulator start --host-port=192.168.1.3:12345 --data-dir=/pubsub-data
 ```

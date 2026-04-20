@@ -22,39 +22,6 @@ Build with
 make gcloud-pubsub-emulator
 ```
 
-## [GCloud Firestore Emulator](/gcloud-firestore-emulator)
-
-A dockerized version of the GCloud Firestore emulator tool, useful for local testing and development
-
-Build with
-
-```shell
-make gcloud-firestore-emulator
-```
-
-## [ModSecurity](/modsecurity)
-
-A re-build of the [owasp/modsecurity](https://hub.docker.com/r/owasp/modsecurity) image to keep in our registry. 
-
-**Note:** The version in the [version file](/modsecurity/version) must be kept in step with the modsecurity base image version for our image tagging.
-
-Build with
-
-```shell
-make modsecurity
-```
-
-## [Cloud SDK Firebase CLI](/cloud-sdk-firebase-cli)
-
-Adds the Firebase cli to the base cloud-sdk image used by the database wipe concourse task to enable Firestore to be
-wiped as part of it.
-
-Build with
-
-```shell
-make cloud-sdk-firebase-cli
-```
-
 ## [Tinyproxy](/tinyproxy)
 
 A lightweight Alpine image with Tinyproxy installed and configured for our needs.
@@ -82,9 +49,8 @@ time dependencies such as `gcc` built in.
 
 Currently, we maintain it for these python versions:
 
-- 3.11
 - 3.12
-- 3.13
+- 3.14
 
 To update the python base versions, update the relevant `python-3.x-tag.txt` file, ensuring you use the `slim` image and
 pin it to the SHA digest explicitly.
@@ -98,7 +64,7 @@ make python-pipenv
 Or build a specific version with `make python-pipenv-3.x`, e.g.:
 
 ```shell
-make python-pipenv-3.10
+make python-pipenv-3.14
 ```
 
 ## [Cloud SDK Terraform](/cloud-sdk-terraform)

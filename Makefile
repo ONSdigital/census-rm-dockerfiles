@@ -1,13 +1,10 @@
-.PHONY: jdk17-maven-node22 gcloud-firestore-emulator gcloud-pubsub-emulator modsecurity cloud-sdk-firebase-cli tinyproxy cloudsql-proxy python-pipenv cloud-sdk-terraform eq-stub owasp-venom
+.PHONY: jdk17-maven-node22 gcloud-pubsub-emulator tinyproxy cloudsql-proxy python-pipenv cloud-sdk-terraform eq-stub owasp-venom
 
 jdk17-maven-node22:
 	docker build ./jdk17-maven-node22 -t jdk17-mvn-node22-npm:latest
 
 gcloud-pubsub-emulator:
 	docker build ./gcloud-pubsub-emulator -t gcloud-pubsub-emulator:latest
-
-modsecurity:
-	docker build ./modsecurity -t modsecurity:latest
 
 tinyproxy:
 	docker build ./tinyproxy -t tinyproxy:latest
@@ -32,4 +29,4 @@ eq-stub:
 owasp-venom:
 	docker build ./owasp-venom -t venom:latest
 
-build-all: gcloud-pubsub-emulator modsecurity tinyproxy cloudsql-proxy python-pipenv python-pipenv-3.12 cloud-sdk-terraform eq-stub owasp-venom
+build-all: gcloud-pubsub-emulator tinyproxy cloudsql-proxy python-pipenv python-pipenv-3.12 cloud-sdk-terraform eq-stub owasp-venom
