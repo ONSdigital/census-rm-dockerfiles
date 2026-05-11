@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17.0.3_7-jdk
+FROM eclipse-temurin:21-jdk
 
 ARG MAVEN_VERSION=3.8.6
 ARG USER_HOME_DIR="/root"

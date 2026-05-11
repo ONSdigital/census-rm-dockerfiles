@@ -1,7 +1,7 @@
-.PHONY: jdk17-maven-node22 gcloud-pubsub-emulator tinyproxy cloudsql-proxy python-pipenv cloud-sdk-terraform eq-stub owasp-venom
+.PHONY: jdk21-maven-node22 gcloud-pubsub-emulator tinyproxy cloudsql-proxy python-pipenv cloud-sdk-terraform eq-stub owasp-venom
 
-jdk17-maven-node22:
-	docker build ./jdk17-maven-node22 -t jdk17-mvn-node22-npm:latest
+jdk21-maven-node22:
+	docker build ./jdk21-maven-node22 -t jdk21-mvn-node22-npm:latest
 
 gcloud-pubsub-emulator:
 	docker build ./gcloud-pubsub-emulator -t gcloud-pubsub-emulator:latest
