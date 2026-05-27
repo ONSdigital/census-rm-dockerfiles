@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-jdk
+FROM eclipse-temurin:21.0.11_10-jdk
 
 ARG MAVEN_VERSION=3.8.6
 ARG USER_HOME_DIR="/root"
@@ -14,8 +14,8 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && curl -sL https://deb.nodesource.com/setup_22.x | bash - \
   && apt-get install -y nodejs
 
-ENV MAVEN_HOME /usr/share/maven
-ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
+ENV MAVEN_HOME=/usr/share/maven
+ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 
 COPY mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
 COPY settings-docker.xml /usr/share/maven/ref/
