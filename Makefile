@@ -1,11 +1,10 @@
 # Set the container runtime based on architecture, default to docker for amd64 and podman for arm64
 DOCKER ?= $(shell if [ "$$(uname -m)" = "arm64" ]; then echo podman; else echo docker; fi)
 
+.PHONY: jdk21-maven-node22 gcloud-pubsub-emulator tinyproxy cloudsql-proxy python-pipenv cloud-sdk-terraform eq-stub owasp-venom
 
-.PHONY: jdk17-maven-node22 gcloud-pubsub-emulator tinyproxy cloudsql-proxy python-pipenv cloud-sdk-terraform eq-stub owasp-venom
-
-jdk17-maven-node22:
-	$(DOCKER) build --platform linux/amd64 ./jdk17-maven-node22 -t jdk17-mvn-node22-npm:latest
+jdk21-maven-node22:
+	$(DOCKER) build ./jdk21-maven-node22 -t jdk21-mvn-node22-npm:latest
 
 gcloud-pubsub-emulator:
 	$(DOCKER) build --platform linux/amd64 ./gcloud-pubsub-emulator -t gcloud-pubsub-emulator:latest
@@ -33,4 +32,4 @@ eq-stub:
 owasp-venom:
 	$(DOCKER) build --platform linux/amd64 ./owasp-venom -t venom:latest
 
-build-all: gcloud-pubsub-emulator tinyproxy cloudsql-proxy python-pipenv python-pipenv-3.12 cloud-sdk-terraform eq-stub owasp-venom
+build-all: jdk21-maven-node22 gcloud-pubsub-emulator tinyproxy cloudsql-proxy python-pipenv python-pipenv-3.12 cloud-sdk-terraform eq-stub owasp-venom
